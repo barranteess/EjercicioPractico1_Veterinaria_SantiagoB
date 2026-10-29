@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/index :: cabeceraHtml}"/>
+    <body>
+        <header th:replace="~{general/index :: encabezado}"/>
+        <nav th:replace="~{general/index :: barraNavegacion}"/>
+
+        <section class="container my-4">
+
+            <div class="seccion-menta p-4 mb-4 text-center">
+                <span class="badge bg-warning text-dark mb-2">Campaña del mes</span>
+                <h2 class="titulo-seccion">Jornada de Vacunación</h2>
+                <p class="lead mb-1">Protege a tu mascota este mes con vacuna antirrábica y polivalente.</p>
+                <p class="mb-3">Descuento especial al vacunar a 2 o más mascotas.</p>
+                <a th:href="@{/servicios}" class="btn btn-acento">Ver servicios</a>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="card tarjeta-vet h-100 p-3">
+                        <h5 class="titulo-seccion"><i class="fas fa-clock"></i> Horario</h5>
+                        <p class="mb-0">Lunes a viernes: 8:00 a.m. - 6:00 p.m.<br/>Sábados: 8:00 a.m. - 1:00 p.m.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card tarjeta-vet h-100 p-3">
+                        <h5 class="titulo-seccion"><i class="fas fa-location-dot"></i> Ubicación</h5>
+                        <p class="mb-0">San Pedro, San José, Costa Rica.<br/>Frente a la plaza principal.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card tarjeta-vet h-100 p-3">
+                        <h5 class="titulo-seccion"><i class="fas fa-stethoscope"></i> Especialidades</h5>
+                        <p class="mb-0">Medicina general, vacunación, estética canina y felina, y cirugía programada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ratio ratio-16x9 mb-5">
+                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO"
+                        title="Cuidado de mascotas" allowfullscreen>
+                </iframe>
+            </div>
+
+            <div id="consultas" class="card tarjeta-vet p-4">
+                <h2 class="titulo-seccion">Envíanos tu consulta</h2>
+
+                <div class="alert alert-success" th:if="${mensajeConsulta}">[[${mensajeConsulta}]]</div>
+
+                <form th:action="@{/consultas/enviar}" method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="nombreContacto">Nombre</label>
+                            <input type="text" class="form-control" name="nombreContacto" id="nombreContacto" required/>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="correoContacto">Correo electrónico</label>
+                            <input type="email" class="form-control" name="correoContacto" id="correoContacto" required/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="nombreMascota">Nombre de la mascota</label>
+                        <input type="text" class="form-control" name="nombreMascota" id="nombreMascota" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="mensajeContacto">Mensaje</label>
+                        <textarea class="form-control" name="mensajeContacto" id="mensajeContacto" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-vet">Enviar consulta</button>
+                </form>
+            </div>
+        </section>
+
+        <footer th:replace="~{general/index :: piePagina}"/>
+    </body>
+</html>
