@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>spring-boot:run</goal>
+            </goals>
+            <properties>
+                <run.mainClass>com.clinica.veterinaria.VeterinariaApplication</run.mainClass>
+                <run.jvmArguments>-XX:TieredStopAtLevel=1</run.jvmArguments>
+            </properties>
+        </action>
+    </actions>
