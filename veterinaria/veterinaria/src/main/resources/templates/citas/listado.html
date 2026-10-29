@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/index :: cabeceraHtml}"/>
+    <body>
+        <header th:replace="~{general/index :: encabezado}"/>
+        <nav th:replace="~{general/index :: barraNavegacion}"/>
+
+        <section class="container my-4">
+            <h2 class="titulo-seccion mb-3">Citas Programadas</h2>
+
+            <table class="table table-hover tabla-vet bg-white shadow-sm">
+                <thead>
+                    <tr>
+                        <th>Mascota</th>
+                        <th>Propietario</th>
+                        <th>Fecha</th>
+                        <th>Servicio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cita : ${listaCitas}">
+                        <td>[[${cita.nombreMascota}]]</td>
+                        <td>[[${cita.nombrePropietario}]]</td>
+                        <td th:text="${#temporals.format(cita.fecha, 'dd/MM/yyyy')}">01/01/2026</td>
+                        <td>[[${cita.servicio.nombre}]]</td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(listaCitas)}">
+                        <td colspan="4" class="text-center text-muted">No hay citas programadas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer th:replace="~{general/index :: piePagina}"/>
+    </body>
+</html>
