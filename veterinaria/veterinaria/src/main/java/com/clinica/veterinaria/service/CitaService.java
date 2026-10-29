@@ -4,10 +4,10 @@
  */
 package com.clinica.veterinaria.service;
 
-/**
- *
- * @author barra
- */
+import com.clinica.veterinaria.domain.Cita;
+import java.util.List;
+
 public interface CitaService {
-    
+
+    List<Cita> obtenerTodas();
 }

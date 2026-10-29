@@ -4,10 +4,17 @@
  */
 package com.clinica.veterinaria.service;
 
-/**
- *
- * @author barra
- */
+import com.clinica.veterinaria.domain.Servicio;
+import java.util.List;
+import java.util.Optional;
+
 public interface ServicioService {
-    
+
+    List<Servicio> obtenerTodos();
+
+    Optional<Servicio> obtenerPorId(Integer id);
+
+    void registrar(Servicio servicio);
+
+    void borrar(Integer id);
 }
