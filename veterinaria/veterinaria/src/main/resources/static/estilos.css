@@ -6,4 +6,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 28 oct 2026, 8:27:22 p. m.
     Author     : barra
 */
+:root {
+    --vet-primario: #2A9D8F;
+    --vet-oscuro: #264653;
+    --vet-menta: #E6F4F1;
+    --vet-acento: #F4A261;
+    --vet-crema: #FDF8F0;
+}
 
+body { background-color: var(--vet-crema); color: var(--vet-oscuro); }
+
+.encabezado-clinica {
+    background: linear-gradient(135deg, var(--vet-primario), var(--vet-oscuro));
+    color: #fff;
+}
+
+.navbar-vet { background-color: var(--vet-oscuro); }
+.navbar-vet .nav-link { color: #fff; font-weight: 500; }
+.navbar-vet .nav-link:hover { color: var(--vet-acento); }
+
+.pie-clinica { background-color: var(--vet-oscuro); color: #fff; }
+
+.btn-vet { background-color: var(--vet-primario); color: #fff; border: none; }
+.btn-vet:hover { background-color: #21867a; color: #fff; }
+.btn-acento { background-color: var(--vet-acento); color: var(--vet-oscuro); border: none; }
+.btn-acento:hover { background-color: #e8924a; }
+
+.tabla-vet thead { background-color: var(--vet-primario); color: #fff; }
+.tarjeta-vet { border: none; border-radius: 1rem; box-shadow: 0 4px 14px rgba(38, 70, 83, .12); }
+.seccion-menta { background-color: var(--vet-menta); border-radius: 1rem; }
+.titulo-seccion { color: var(--vet-primario); font-weight: 700; }

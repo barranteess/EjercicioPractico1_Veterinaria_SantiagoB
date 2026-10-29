@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<head th:fragment="cabeceraHtml">
+    <title>Clínica Veterinaria</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+    <link th:href="@{/css/estilos.css}" rel="stylesheet"/>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</head>
+
+<header th:fragment="encabezado" class="encabezado-clinica py-3">
+    <div class="container">
+        <h1><i class="fas fa-paw"></i> [[#{app.nombre}]]</h1>
+        <p class="mb-0">[[#{app.eslogan}]]</p>
+    </div>
+</header>
+
+<nav th:fragment="barraNavegacion" class="navbar navbar-expand-sm navbar-dark navbar-vet">
+    <div class="container">
+        <a th:href="@{/}" class="navbar-brand">[[#{app.nombre}]]</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item px-2"><a class="nav-link" th:href="@{/}">[[#{nav.inicio}]]</a></li>
+                <li class="nav-item px-2"><a class="nav-link" th:href="@{/tipos}">[[#{nav.tipos}]]</a></li>
+                <li class="nav-item px-2"><a class="nav-link" th:href="@{/servicios}">[[#{nav.servicios}]]</a></li>
+                <li class="nav-item px-2"><a class="nav-link" th:href="@{/citas}">[[#{nav.citas}]]</a></li>
+                <li class="nav-item px-2"><a class="nav-link" th:href="@{/#consultas}">[[#{nav.consultas}]]</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<footer th:fragment="piePagina" class="pie-clinica p-3 mt-5 text-center">
+    <p class="mb-1">[[#{footer.derechos}]]</p>
+    <p class="mb-1">[[#{footer.direccion}]]</p>
+    <p class="mb-0">[[#{footer.contacto}]]</p>
+</footer>
+
+<div th:fragment="avisoResultado">
+    <div class="toast-container position-fixed top-0 end-0 p-3" th:if="${mensaje}">
+        <div id="toastResultado" class="toast align-items-center border-0"
+             th:classappend="${'text-bg-' + (tipoMensaje ?: 'success')}" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">[[${mensaje}]]</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const elementoToast = document.getElementById('toastResultado');
+            if (elementoToast) {
+                new bootstrap.Toast(elementoToast, {delay: 4000}).show();
+            }
+        });
+    </script>
+</div>

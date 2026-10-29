@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/index :: cabeceraHtml}"/>
+    <body>
+        <header th:replace="~{general/index :: encabezado}"/>
+        <nav th:replace="~{general/index :: barraNavegacion}"/>
+
+        <section class="container my-4">
+            <h2 class="titulo-seccion mb-3"
+                th:text="${tipoServicio.id == null} ? 'Agregar tipo de servicio' : 'Editar tipo de servicio'">Formulario</h2>
+
+            <form th:action="@{/tipos/guardar}" th:object="${tipoServicio}" method="post" class="card tarjeta-vet p-4">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="mb-3">
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input type="text" class="form-control" th:field="*{nombre}" id="nombre" maxlength="100" required/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="descripcion">Descripción</label>
+                    <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion" maxlength="255"/>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-vet">Guardar</button>
+                    <a th:href="@{/tipos}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+
+        <footer th:replace="~{general/index :: piePagina}"/>
+    </body>
+</html>
